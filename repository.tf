@@ -5,7 +5,6 @@ resource "github_repository" "example" {
   visibility = var.repo_visibility
 }
 
-
 resource "github_team" "some_team" {
   count = "${length(var.teams)}"
   name = var.teams[count.index].team_name
