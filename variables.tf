@@ -1,5 +1,5 @@
 variable "token" {
-    default = "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"
+    default = ""
 }
 
 variable "owner" {
