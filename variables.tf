@@ -37,3 +37,12 @@ variable "teams" {
     }
   ]
 }
+
+variable "deploy_key" {
+  type = list(string)
+
+  default = [
+    "ssh-rsa AAA...",
+    "ssh-rsa BBB..."
+  ]
+}
