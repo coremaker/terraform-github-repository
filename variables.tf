@@ -44,8 +44,5 @@ variable "branch_protection" {
 variable "deploy_key" {
   type = list(string)
 
-  default = [
-    "ssh-rsa AAA...",
-    "ssh-rsa BBB..."
-  ]
+  default = []
 }
