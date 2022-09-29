@@ -20,43 +20,25 @@ variable "teams" {
 
 variable "branch_protection" {
   type = map(object({
-        enforce_admins                  = bool
-        require_signed_commits          = bool
-        required_linear_history         = bool
-        require_conversation_resolution = bool
-        allows_deletions                = bool
-        allows_force_pushes             = bool
-        blocks_creations                = bool
+        enforce_admins                  = bool    # true = status checks for repository administrators.
+        require_signed_commits          = bool    # true = requires all commits to be signed with GPG.
+        required_linear_history         = bool    # true = enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        require_conversation_resolution = bool    # true = requires all conversations on code must be resolved before a pull request can be merged.
+        allows_deletions                = bool    # true = allows the branch to be deleted.
+        allows_force_pushes             = bool    # true = allows force pushes on the branch.
+        blocks_creations                = bool    # true = blocks creating the branch.
         required_status_checks = list(object({
-          strict       = bool
-          contexts     = set(string)
+          strict       = bool          # Require branches to be up to date before merging. Defaults to false
+          contexts     = set(string)   # The list of status checks to require in order to merge into this branch. No status checks are required by default.
         }))
         required_pull_request_reviews = list(object({
-          dismiss_stale_reviews             = bool
-          required_approving_review_count   = number
+          dismiss_stale_reviews             = bool   # Dismiss approved reviews automatically when a new commit is pushed. Defaults to false
+          require_code_owner_reviews        = bool   # Require an approved review in pull requests including files with a designated code owner. Defaults to false.
+          required_approving_review_count   = number # Require x number of approvals to satisfy branch protection requirements
         }))
 
   }))
-  default     = {
-    main = {
-        enforce_admins                  = true
-        require_signed_commits          = false
-        required_linear_history         = false
-        require_conversation_resolution = false
-        allows_deletions                = true
-        allows_force_pushes             = false
-        blocks_creations                = false
-        required_status_checks = [{
-          strict       = false
-          contexts     = [""]
-        }]
-        required_pull_request_reviews = [{
-          dismiss_stale_reviews             = true
-          required_approving_review_count   = "2"
-        }]
-    }
-  }
-  description = "Branch protections for selected branched in repository"
+  description = "Branch protections for selected branches in repository"
 }
 
 variable "deploy_key" {

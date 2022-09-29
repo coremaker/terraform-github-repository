@@ -1,3 +1,5 @@
+
+# Repository configuration module
 resource "github_repository" "coremaker_repo" {
   name         = var.repo_name
   description  = var.repo_description
@@ -6,6 +8,7 @@ resource "github_repository" "coremaker_repo" {
 }
 
 
+# Add teams to the given repository
 resource "github_team_repository" "coremaker_team_repo" {
   repository = github_repository.coremaker_repo.name
   count = "${length(var.teams)}"
@@ -14,6 +17,7 @@ resource "github_team_repository" "coremaker_team_repo" {
   permission = var.teams[count.index].permission
 }
 
+# Give branch protection for multiple branches inside the repository
 resource "github_branch_protection" "branch_protect" {
   repository_id = github_repository.coremaker_repo.name
 
@@ -41,12 +45,14 @@ resource "github_branch_protection" "branch_protect" {
 
     content {
       dismiss_stale_reviews             = required_pull_request_reviews.value.dismiss_stale_reviews
+      require_code_owner_reviews        = required_pull_request_reviews.value.require_code_owner_reviews
       required_approving_review_count   = required_pull_request_reviews.value.required_approving_review_count
     }
   }
 
 }
 
+# Deploy keys for repository auth
 resource "github_repository_deploy_key" "example_repository_deploy_key" {
   title      = "Repository keys"
   repository = github_repository.coremaker_repo.name
