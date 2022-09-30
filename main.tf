@@ -10,7 +10,7 @@ resource "github_repository" "coremaker_repo" {
 
 # Add teams to the given repository
 resource "github_team_repository" "coremaker_team_repo" {
-  repository = github_repository.coremaker_repo.node_id
+  repository = github_repository.coremaker_repo.name
   count = "${length(var.teams)}"
 
   team_id = var.teams[count.index].team_name
