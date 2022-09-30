@@ -10,7 +10,7 @@ resource "github_repository" "coremaker_repo" {
 
 # Add teams to the given repository
 resource "github_team_repository" "coremaker_team_repo" {
-  repository = github_repository.coremaker_repo.name
+  repository = github_repository.coremaker_repo.node_id
   count = "${length(var.teams)}"
 
   team_id = var.teams[count.index].team_name
@@ -30,7 +30,7 @@ resource "github_team_repository" "coremaker_team_repo" {
 
 # Give branch protection for multiple branches inside the repository
 resource "github_branch_protection" "branch_protection" {
-  repository_id = github_repository.coremaker_repo.name
+  repository_id = github_repository.coremaker_repo.node_id
 
   for_each = var.branch_protection
   pattern                         = each.key
