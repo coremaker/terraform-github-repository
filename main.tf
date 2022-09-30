@@ -23,6 +23,11 @@ resource "github_branch" "branch_creation" {
   branch     = each.key
 }
 
+resource "github_branch_default" "default"{
+  repository = github_repository.coremaker_repo.name
+  branch     = github_branch.branch_creation.branch
+}
+
 # Give branch protection for multiple branches inside the repository
 resource "github_branch_protection" "branch_protection" {
   repository_id = github_repository.coremaker_repo.name
