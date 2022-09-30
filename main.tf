@@ -17,8 +17,14 @@ resource "github_team_repository" "coremaker_team_repo" {
   permission = var.teams[count.index].permission
 }
 
+resource "github_branch" "branch_creation" {
+  repository = github_repository.coremaker_repo.name
+  for_each = var.branch_protection
+  branch     = each.key
+}
+
 # Give branch protection for multiple branches inside the repository
-resource "github_branch_protection" "branch_protect" {
+resource "github_branch_protection" "branch_protection" {
   repository_id = github_repository.coremaker_repo.name
 
   for_each = var.branch_protection
