@@ -25,7 +25,7 @@ resource "github_branch" "branch_creation" {
 
 resource "github_branch_default" "default"{
   repository = github_repository.coremaker_repo.name
-  branch     = github_branch.branch_creation.branch
+  branch     = "main"
 }
 
 # Give branch protection for multiple branches inside the repository
