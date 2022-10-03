@@ -48,7 +48,6 @@ resource "github_branch_protection" "branch_protection" {
 
     content {
       strict   = required_status_checks.value.strict
-      # contexts = required_status_checks.value.contexts
     }
   }
 
