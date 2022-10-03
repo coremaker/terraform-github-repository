@@ -50,5 +50,7 @@ source = "github.com/coremaker/terraform-github-repository.git?ref=DOP-50-terraf
         }]
     }
   }
+  
+  deploy_key = []
 }
 ```
