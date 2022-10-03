@@ -4,7 +4,6 @@ resource "github_repository" "coremaker_repo" {
   name         = var.repo_name
   description  = var.repo_description
   auto_init    = true
-  default_branch = "main"
 
   visibility   = var.repo_visibility
 }
