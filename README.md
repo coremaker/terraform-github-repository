@@ -13,7 +13,7 @@ This is the Terraform Github Module used to create repositories, add existing te
 | [github_repository_deploy_key](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_deploy_key) | resource |
 
 # Usage Example
-```
+```terraform
 module "github-repository" {
 source = "github.com/coremaker/terraform-github-repository.git?ref=DOP-50-terraform-github-repository-Module"
   
