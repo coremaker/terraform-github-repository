@@ -52,15 +52,15 @@ resource "github_branch_protection" "branch_protection" {
   #   }
   # }
 
-  # dynamic "required_pull_request_reviews" {
-  #   for_each = each.value.required_pull_request_reviews
+  dynamic "required_pull_request_reviews" {
+    for_each = each.value.required_pull_request_reviews
 
-  #   content {
-  #     dismiss_stale_reviews             = required_pull_request_reviews.value.dismiss_stale_reviews
-  #     require_code_owner_reviews        = required_pull_request_reviews.value.require_code_owner_reviews
-  #     required_approving_review_count   = required_pull_request_reviews.value.required_approving_review_count
-  #   }
-  # }
+    content {
+      dismiss_stale_reviews             = required_pull_request_reviews.value.dismiss_stale_reviews
+      require_code_owner_reviews        = required_pull_request_reviews.value.require_code_owner_reviews
+      required_approving_review_count   = required_pull_request_reviews.value.required_approving_review_count
+    }
+  }
 
 }
 

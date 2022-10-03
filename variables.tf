@@ -31,11 +31,11 @@ variable "branch_protection" {
         #   strict       = bool          # Require branches to be up to date before merging. Defaults to false
         #   contexts     = set(string)   # The list of status checks to require in order to merge into this branch. No status checks are required by default.
         # }))
-        # required_pull_request_reviews = list(object({
-        #   dismiss_stale_reviews             = bool   # Dismiss approved reviews automatically when a new commit is pushed. Defaults to false
-        #   require_code_owner_reviews        = bool   # Require an approved review in pull requests including files with a designated code owner. Defaults to false.
-        #   required_approving_review_count   = number # Require x number of approvals to satisfy branch protection requirements
-        # }))
+        required_pull_request_reviews = list(object({
+          dismiss_stale_reviews             = bool   # Dismiss approved reviews automatically when a new commit is pushed. Defaults to false
+          require_code_owner_reviews        = bool   # Require an approved review in pull requests including files with a designated code owner. Defaults to false.
+          required_approving_review_count   = number # Require x number of approvals to satisfy branch protection requirements
+        }))
 
   }))
   description = "Branch protections for selected branches in repository"
