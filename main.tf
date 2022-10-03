@@ -49,7 +49,6 @@ resource "github_branch_protection" "branch_protection" {
       required_approving_review_count   = required_pull_request_reviews.value.required_approving_review_count
     }
   }
-
 }
 
 # Deploy keys for repository auth
