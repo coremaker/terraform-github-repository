@@ -29,7 +29,7 @@ variable "branch_protection" {
         blocks_creations                = bool    # true = blocks creating the branch.
         required_status_checks = list(object({
           strict       = bool          # Require branches to be up to date before merging. Defaults to false
-          contexts     = set(string)   # The list of status checks to require in order to merge into this branch. No status checks are required by default.
+          # contexts     = set(string)   # The list of status checks to require in order to merge into this branch. No status checks are required by default.
         }))
         required_pull_request_reviews = list(object({
           dismiss_stale_reviews             = bool   # Dismiss approved reviews automatically when a new commit is pushed. Defaults to false
