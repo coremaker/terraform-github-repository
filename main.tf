@@ -43,14 +43,14 @@ resource "github_branch_protection" "branch_protection" {
   allows_force_pushes             = each.value.allows_force_pushes
   blocks_creations                = each.value.blocks_creations
 
-  # dynamic "required_status_checks" {
-  #   for_each = each.value.required_status_checks
+  dynamic "required_status_checks" {
+    for_each = each.value.required_status_checks
 
-  #   content {
-  #     strict   = required_status_checks.value.strict
-  #     contexts = required_status_checks.value.contexts
-  #   }
-  # }
+    content {
+      strict   = required_status_checks.value.strict
+      contexts = required_status_checks.value.contexts
+    }
+  }
 
   dynamic "required_pull_request_reviews" {
     for_each = each.value.required_pull_request_reviews
