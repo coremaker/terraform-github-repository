@@ -36,31 +36,31 @@ resource "github_branch_protection" "branch_protection" {
   for_each = var.branch_protection
   pattern                         = each.key
   enforce_admins                  = each.value.enforce_admins
-  require_signed_commits          = each.value.require_signed_commits
-  required_linear_history         = each.value.required_linear_history
-  require_conversation_resolution = each.value.require_conversation_resolution
-  allows_deletions                = each.value.allows_deletions
-  allows_force_pushes             = each.value.allows_force_pushes
-  blocks_creations                = each.value.blocks_creations
+  # require_signed_commits          = each.value.require_signed_commits
+  # required_linear_history         = each.value.required_linear_history
+  # require_conversation_resolution = each.value.require_conversation_resolution
+  # allows_deletions                = each.value.allows_deletions
+  # allows_force_pushes             = each.value.allows_force_pushes
+  # blocks_creations                = each.value.blocks_creations
 
-  dynamic "required_status_checks" {
-    for_each = each.value.required_status_checks
+  # dynamic "required_status_checks" {
+  #   for_each = each.value.required_status_checks
 
-    content {
-      strict   = required_status_checks.value.strict
-      contexts = required_status_checks.value.contexts
-    }
-  }
+  #   content {
+  #     strict   = required_status_checks.value.strict
+  #     contexts = required_status_checks.value.contexts
+  #   }
+  # }
 
-  dynamic "required_pull_request_reviews" {
-    for_each = each.value.required_pull_request_reviews
+  # dynamic "required_pull_request_reviews" {
+  #   for_each = each.value.required_pull_request_reviews
 
-    content {
-      dismiss_stale_reviews             = required_pull_request_reviews.value.dismiss_stale_reviews
-      require_code_owner_reviews        = required_pull_request_reviews.value.require_code_owner_reviews
-      required_approving_review_count   = required_pull_request_reviews.value.required_approving_review_count
-    }
-  }
+  #   content {
+  #     dismiss_stale_reviews             = required_pull_request_reviews.value.dismiss_stale_reviews
+  #     require_code_owner_reviews        = required_pull_request_reviews.value.require_code_owner_reviews
+  #     required_approving_review_count   = required_pull_request_reviews.value.required_approving_review_count
+  #   }
+  # }
 
 }
 
