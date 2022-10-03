@@ -21,12 +21,12 @@ variable "teams" {
 variable "branch_protection" {
   type = map(object({
         enforce_admins                  = bool    # true = status checks for repository administrators.
-        # require_signed_commits          = bool    # true = requires all commits to be signed with GPG.
-        # required_linear_history         = bool    # true = enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
-        # require_conversation_resolution = bool    # true = requires all conversations on code must be resolved before a pull request can be merged.
-        # allows_deletions                = bool    # true = allows the branch to be deleted.
-        # allows_force_pushes             = bool    # true = allows force pushes on the branch.
-        # blocks_creations                = bool    # true = blocks creating the branch.
+        require_signed_commits          = bool    # true = requires all commits to be signed with GPG.
+        required_linear_history         = bool    # true = enforces a linear commit Git history, which prevents anyone from pushing merge commits to a branch
+        require_conversation_resolution = bool    # true = requires all conversations on code must be resolved before a pull request can be merged.
+        allows_deletions                = bool    # true = allows the branch to be deleted.
+        allows_force_pushes             = bool    # true = allows force pushes on the branch.
+        blocks_creations                = bool    # true = blocks creating the branch.
         # required_status_checks = list(object({
         #   strict       = bool          # Require branches to be up to date before merging. Defaults to false
         #   contexts     = set(string)   # The list of status checks to require in order to merge into this branch. No status checks are required by default.
