@@ -1,5 +1,5 @@
 # Repository configuration module
-resource "github_repository" "coremaker_repo" {
+resource "github_repository" "repository_creation" {
   name        = var.repo_name
   description = var.repo_description
   auto_init   = true
@@ -8,19 +8,19 @@ resource "github_repository" "coremaker_repo" {
 }
 
 # Add teams to the given repository
-resource "github_team_repository" "coremaker_team_repo" {
-  repository = github_repository.coremaker_repo.name
-  count      = length(var.teams)
+resource "github_team_repository" "repository_teams" {
+  count      = length(var.repo_teams)
+  repository = github_repository.repository_creation.name
 
-  team_id    = var.teams[count.index].team_name
-  permission = var.teams[count.index].permission
+  team_id    = var.repo_teams[count.index].team_name
+  permission = var.repo_teams[count.index].permission
 }
 
 # Give branch protection for multiple branches inside the repository
-resource "github_branch_protection" "branch_protection" {
-  repository_id = github_repository.coremaker_repo.node_id
-
+resource "github_branch_protection" "repository_branch_protection" {
   for_each                        = var.branch_protection
+  repository_id = github_repository.repository_creation.node_id
+
   pattern                         = each.key
   enforce_admins                  = each.value.enforce_admins
   require_signed_commits          = each.value.require_signed_commits
@@ -50,10 +50,10 @@ resource "github_branch_protection" "branch_protection" {
 }
 
 # Deploy keys for repository auth
-resource "github_repository_deploy_key" "example_repository_deploy_key" {
-  title      = "Repository keys"
-  repository = github_repository.coremaker_repo.name
+resource "github_repository_deploy_key" "repository_deploy_key" {
   for_each   = toset(var.deploy_key)
+  title      = "Repository keys"
+  repository = github_repository.repository_creation.name
   key        = each.value
   read_only  = "false"
 }

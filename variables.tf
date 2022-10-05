@@ -1,17 +1,20 @@
 variable "repo_name" {
+  type = string
   description = "GitHub Repository Name"
   default     = ""
 }
 
 variable "repo_description" {
+  type = string
   default = ""
 }
 
 variable "repo_visibility" {
+  type = string
   default = ""
 }
 
-variable "teams" {
+variable "repo_teams" {
   type = list(object({
     team_name  = string
     permission = string
