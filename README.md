@@ -15,7 +15,7 @@ This is the Terraform Github Module used to create repositories, add existing te
 # Usage Example
 ```terraform
 module "github-repository" {
-source = "github.com/coremaker/terraform-github-repository.git
+source = "github.com/coremaker/terraform-github-repository.git"
   
   # Repository Configuration
   repo_name = "terraform-github-example"
