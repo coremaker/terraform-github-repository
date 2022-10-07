@@ -15,7 +15,7 @@ This is the Terraform Github Module used to create repositories, add existing te
 # Usage Example
 ```terraform
 module "github-repository" {
-source = "github.com/coremaker/terraform-github-repository.git?ref=DOP-50-terraform-github-repository-Module"
+source = "github.com/coremaker/terraform-github-repository.git
   
   # Repository Configuration
   repo_name = "terraform-github-example"
@@ -23,7 +23,7 @@ source = "github.com/coremaker/terraform-github-repository.git?ref=DOP-50-terraf
   repo_visibility = "public"
 
   # Added teams to the repository in question
-  teams = [
+  repo_teams = [
     {
         team_name = "test-terraform"
         permission = "admin"
@@ -51,6 +51,6 @@ source = "github.com/coremaker/terraform-github-repository.git?ref=DOP-50-terraf
     }
   }
   
-  deploy_key = []
+  deploy_key = [ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDNmXvyJzMYf7eeDSpD7oRwZfNjLhAaz4Hz5cOg01Z92IOgq1KryISJ6IB8zmG1+yEXlKauX1qj623n74Ugp3/Dz4OShBdpeoSEo8QeX9wxRCBu1KLTBdwo7OnUdko/7iduK3RTrKmA3JC89nMxiqD4B1ooAr6P3wYOYJhL7SXtWeamfSezaWp4mGtVSDTmN3Yz+Q7heEOuT50PSjOdPmFnMkKqONp3a/A2eldIG7jTDHYuzPUi6Sg7nJ62x42QX913y3k0NyNOYpy+yKcjpNcgzlTxUurnzzLJvdGQHbvYxjd86ogbQdGzSStKG9xnfVTear1HBUryW8ybEhhSELSzhNDIz1gOx4Q7PKDswwvdaEJsDyBjjAkNz5zoGGBDKD7hT7g+hIheaIbHj218xmmTRPb/wVyq81m+MAD2cYmD+fZsyhMg+eVwLdFK80XMU9flEXD2+EG4iJ/TNOtpTtxI3h4FM1gcoxPNk82R/kw8QSFUniCE+YwffUoM52r8GYE=]
 }
 ```
