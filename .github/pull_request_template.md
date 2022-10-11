@@ -25,8 +25,8 @@ TODOs
 - [X] Format terraform code.
 - [X] Give terraform resources meaningful names.
 - [X] Introduced pull_request_template file.
-- [ ] Examples directory.
-- [ ] Deploy keys example.
+- [X] Examples directory.
+- [X] Deploy keys example.
 - [ ] Terraform pre-commit without tflint.
 
 Other information
