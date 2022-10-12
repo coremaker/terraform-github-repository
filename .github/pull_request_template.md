@@ -20,14 +20,14 @@ TODOs
 <!--- Please ensure all of these TODOs are completed before asking for a review. Remove where unapplicable. -->
 
 - [X] Ensure the branch is named correctly with the ticket number. (eg: DOP-2222)
-- [ ] Update the docs.
+- [X] Update the docs.
 - [X] Update varible types.
 - [X] Format terraform code.
 - [X] Give terraform resources meaningful names.
 - [X] Introduced pull_request_template file.
 - [X] Examples directory.
 - [X] Deploy keys example.
-- [ ] Terraform pre-commit without tflint.
+- [X] Terraform pre-commit with tflint.
 
 Other information
 

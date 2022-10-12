@@ -2,7 +2,7 @@
 
 This is the Terraform Github Module used to create repositories, add existing teams to it with specific permissions, set branch protections to desired branches and add deploy keys.
 
-
+<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 # Resources
 
 | Name | Type |
@@ -12,3 +12,4 @@ This is the Terraform Github Module used to create repositories, add existing te
 | [github_branch_protection](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/branch_protection) | resource |
 | [github_repository_deploy_key](https://registry.terraform.io/providers/integrations/github/latest/docs/resources/repository_deploy_key) | resource |
 
+<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
