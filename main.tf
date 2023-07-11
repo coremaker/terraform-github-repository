@@ -18,7 +18,7 @@ resource "github_team_repository" "repository_teams" {
 
 # Give branch protection for multiple branches inside the repository
 resource "github_branch_protection" "repository_branch_protection" {
-  for_each                        = var.branch_protection
+  for_each      = var.branch_protection
   repository_id = github_repository.repository_creation.node_id
 
   pattern                         = each.key
